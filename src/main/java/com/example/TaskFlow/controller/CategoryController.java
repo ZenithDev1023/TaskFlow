@@ -33,7 +33,7 @@ public class CategoryController {
     }
 
 
-    @PostMapping
+    @PostMapping("/create")
     public Category createCategory(@RequestBody Category category) {
         return categoryService.addCategory(category);
     }

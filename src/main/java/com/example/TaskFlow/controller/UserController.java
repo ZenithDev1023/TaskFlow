@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.TaskFlow.service.AuthService;
 import com.example.TaskFlow.service.UserService;
 import com.example.TaskFlow.entity.User;
 
@@ -21,15 +20,13 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/api/auth")
-public class AuthController {
+public class UserController {
 
     private UserService userService;
-    private AuthService authService;
 
     @Autowired
-    public AuthController(UserService userService, AuthService authService) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.authService = authService;
     }
 
 
@@ -43,15 +40,4 @@ public class AuthController {
             return new ResponseEntity<>(u, HttpStatus.NOT_FOUND);
         }
     }
-
-
-    @PostMapping("/login")
-    public List<User> loginUser(@Valid @RequestBody User user) {
-        return authService.login(user);
-    }
-
-    @PostMapping("/logout")
-    public List<User> logoutUser(@Valid @RequestBody User user) {
-        return authService.logout(user);
-    }   
 }

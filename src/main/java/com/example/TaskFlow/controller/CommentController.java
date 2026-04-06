@@ -29,7 +29,7 @@ public class CommentController {
     }
 
 
-    @PostMapping("/{id}/comments")
+    @PostMapping("/{id}/add/comments")
     public Comment addComment(@PathVariable Long id, @RequestBody Comment comment) {
         return commentService.createComment(comment);
     }

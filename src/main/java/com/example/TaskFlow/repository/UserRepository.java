@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.example.TaskFlow.service.UserService;
 
 import com.example.TaskFlow.entity.User;
 import com.example.TaskFlow.enums.user.UserRole;
